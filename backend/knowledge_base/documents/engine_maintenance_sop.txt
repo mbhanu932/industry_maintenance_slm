@@ -1,0 +1,35 @@
+INDUSTRIAL ENGINE MAINTENANCE SOP
+
+1. GENERAL INVESTIGATION
+- Always review predicted remaining useful life (RUL), health score, anomaly score, and risk level together.
+- A high-risk classification should trigger engineering review.
+- Do not diagnose a specific component failure unless supporting evidence is available.
+- Compare current machine behavior with historical degradation trends whenever possible.
+
+2. SENSOR INVESTIGATION
+- Review the sensors contributing most strongly to abnormal behavior.
+- Investigate sustained changes rather than isolated sensor fluctuations.
+- Compare current sensor behavior with the machine's previous operating cycles.
+- Anomaly scores should be interpreted together with RUL and health indicators.
+
+3. MAINTENANCE DECISION
+- If predicted RUL is decreasing significantly, prioritize engineering inspection.
+- If health score is low, review recent telemetry and degradation trends.
+- Maintenance actions should follow approved engineering procedures.
+- The AI assistant provides investigation support and recommendations only.
+- A qualified engineer must approve maintenance actions.
+
+4. HIGH-RISK CONDITION
+- High-risk assets should be prioritized for engineering review.
+- Review recent telemetry behavior.
+- Check for abnormal sensor patterns.
+- Compare the current condition with historical degradation.
+- Determine whether inspection or scheduled maintenance is appropriate.
+
+5. SAFETY
+- The AI system must not directly control or shut down industrial equipment.
+- AI recommendations must be reviewed by qualified personnel.
+- Do not perform maintenance solely on the basis of an AI-generated recommendation.
+
+
+
