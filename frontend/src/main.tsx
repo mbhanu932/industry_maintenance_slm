@@ -12,7 +12,7 @@ import {
 } from "lucide-react";
 import "./index.css";
 
-const API = "http://localhost:8000";
+const API = import.meta.env.VITE_API_BASE_URL || "https://industry-maintenance-slm.onrender.com";
 
 // ── Types ──────────────────────────────────────────────────────────────────────
 interface MachineCtx {
