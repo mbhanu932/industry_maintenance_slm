@@ -606,16 +606,28 @@ class FastDiagnosticEngine:
         sev = self._severity(ctx)
         _, actions = self._failure_mode(ctx, rng)
         eid = ctx["engine_id"]
-        diag = (
-            f"Safety protocol for engine {eid}: "
-            f"Per SOP Section 5 (SAFETY), the AI system MUST NOT directly control or shut down industrial equipment. "
-            f"All AI-generated recommendations must be reviewed and approved by qualified engineering personnel "
-            f"before any maintenance or operational change is made. "
-            f"Current machine status — risk: {ctx['risk_level']}, health: {ctx['health_score']:.1f}/100, "
-            f"anomaly score: {ctx['anomaly_score']:.3f}. "
-            f"{'Given the {ctx[\"risk_level\"]} risk level, escalate to engineering immediately.' if sev in ('CRITICAL','HIGH') else 'Standard safety protocols apply.'} "
-            f"Do not perform maintenance based solely on this AI recommendation."
+        if sev in ("CRITICAL", "HIGH"):
+            escalation_msg = (
+                f"Given the {ctx['risk_level']} risk level, "
+                "escalate to engineering immediately."
         )
+        else:
+            escalation_msg = "Standard safety protocols apply."
+
+    diag = (
+        f"Safety protocol for engine {eid}: "
+        "Per SOP Section 5 (SAFETY), the AI system MUST NOT directly "
+        "control or shut down industrial equipment. "
+        "All AI-generated recommendations must be reviewed and approved "
+        "by qualified engineering personnel before any maintenance "
+        "or operational change is made. "
+        f"Current machine status — risk: {ctx['risk_level']}, "
+        f"health: {ctx['health_score']:.1f}/100, "
+        f"anomaly score: {ctx['anomaly_score']:.3f}. "
+        f"{escalation_msg} "
+        "Do not perform maintenance based solely on this AI recommendation."
+    )
+
         evidence = [
             "AI must not directly control or shut down equipment (SOP Section 5)",
             "All recommendations require qualified engineering review",
