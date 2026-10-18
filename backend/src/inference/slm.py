@@ -628,17 +628,21 @@ class FastDiagnosticEngine:
         "Do not perform maintenance based solely on this AI recommendation."
     )
 
-        evidence = [
-            "AI must not directly control or shut down equipment (SOP Section 5)",
-            "All recommendations require qualified engineering review",
-            f"Current risk level: {ctx['risk_level']}",
-            f"Current health score: {ctx['health_score']:.1f}/100",
-            "Maintenance requires approved engineering procedures (SOP Section 3)",
-        ]
-        return sev, diag, evidence, ["Escalate to qualified engineer before any action",
-                                     "Do not act on AI diagnosis without engineering sign-off",
-                                     "Follow approved engineering procedures for any maintenance",
-                                     "Document AI recommendation and engineering decision"]
+    
+    evidence = [
+        "AI must not directly control or shut down equipment (SOP Section 5)",
+        "All recommendations require qualified engineering review",
+        f"Current risk level: {ctx['risk_level']}",
+        f"Current health score: {ctx['health_score']:.1f}/100",
+        "Maintenance requires approved engineering procedures (SOP Section 3)",
+    ]
+
+    return sev, diag, evidence, [
+        "Escalate to qualified engineer before any action",
+        "Do not act on AI diagnosis without engineering sign-off",
+        "Follow approved engineering procedures for any maintenance",
+        "Document AI recommendation and engineering decision",
+    ]
 
     def _q_risk_level(self, ctx, rng, knowledge):
         sev = self._severity(ctx)
