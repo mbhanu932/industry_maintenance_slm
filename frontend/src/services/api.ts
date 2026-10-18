@@ -21,7 +21,7 @@ import {
 // API CONFIGURATION
 // ═══════════════════════════════════════════════════════════════════════════════
 
-const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'https://industry-maintenance-slm.onrender.com';
 const API_TIMEOUT = parseInt(import.meta.env.VITE_API_TIMEOUT || '30000', 10);
 const MAX_RETRIES = 3;
 const RETRY_DELAY = 1000; // 1 second
