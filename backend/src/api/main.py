@@ -20,19 +20,21 @@ except FileNotFoundError:
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",      # Frontend dev (npm run dev default)
-        "http://localhost:5173",      # Frontend dev (Vite default)
-        "http://localhost:5174",      # Fallback if 5173 is in use
-        "http://127.0.0.1:3000",      # Localhost alternative
-        "http://127.0.0.1:5173",      # Localhost alternative
-        "http://127.0.0.1:5174",      # Localhost alternative
-        "http://localhost:80",        # Production
-        "http://127.0.0.1:80",        # Production
+        "http://localhost:3000",
+        "http://localhost:5173",
+        "http://localhost:5174",
+        "http://127.0.0.1:3000",
+        "http://127.0.0.1:5173",
+        "http://127.0.0.1:5174",
+        "https://industry-maintenance-slm.vercel.app",
+        "https://industry-maintenance-awl7f8j6i-veltris6.vercel.app",
+        "https://industry-maintenance-3ojd1i9ll-veltris6.vercel.app",
     ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 investigator = Investigator()
 
 # ─── Sensor configuration with realistic normal ranges ────────────────────────
